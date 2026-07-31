@@ -1,0 +1,22 @@
+# Atmel Studio / AVR build outputs
+Debug/
+Release/
+*.elf
+*.hex
+*.eep
+*.lss
+*.map
+*.obj
+*.o
+*.d
+*.tmp
+
+# Visual Studio / Atmel Studio user files
+.vs/
+*.atsuo
+*.user
+*.suo
+
+# Local editor/OS files
+.DS_Store
+Thumbs.db
