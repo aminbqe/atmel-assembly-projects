@@ -17,3 +17,7 @@ This AVR program configures Timer0 and uses its overflow interrupt to toggle `PA
 - ISR: `.ORG 1000`
 
 The exact output frequency depends on the MCU clock and the Timer0 configuration.
+
+## Execution detail
+
+The main program writes `0` to `DDRC`, so port C is read as an input, and writes `0xFF` to `DDRD`, making port D an output. It continuously performs `IN PINC` followed by `OUT PORTD`, which acts as an eight-bit port mirror. The ISR reloads `TCNT0` with `-41` and uses `EOR` with `1 << PA5` to toggle only `PA5` while preserving other bits of `PORTA`.

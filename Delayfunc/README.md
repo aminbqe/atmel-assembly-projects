@@ -13,6 +13,10 @@ This Atmel AVR assembly file contains a subroutine named `DELAY`.
 
 Call the routine with `RCALL DELAY`. It clobbers `R20` and `R21`.
 
+## Control flow and timing
+
+`R20` starts at 203. The inner `LOP2` loop executes two `NOP`s, decrements `R20`, and repeats while `R20` is nonzero. `LOP1` then decrements `R21`; its initial value is 8. This makes the delay instruction-count based rather than a timer-based delay, so its duration changes with the CPU clock.
+
 ## Note
 
 The current source loads `R20` only once, before the outer loop. If the intention is a fixed inner-loop delay for every outer-loop iteration, reload `R20` inside `LOP1`.
